@@ -1,5 +1,5 @@
 //Task 2- Fetching API and displaying basic product details on the webpage
-fetch(www.course-api.com/javascript-store-products)
+fetch('https://www.course-api.com/javascript-store-products')
     .then(response=> {
         if (!response.ok) {
             throw new Error('Network response was not ok');
