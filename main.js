@@ -16,6 +16,19 @@ fetch('https://www.course-api.com/javascript-store-products')
             const listItem = document.createElement('li')
             listItem.textContent = `${productFields.name} - $${productFields.price}`
             productList.appendChild(listItem) 
+
+             //Task 3- Display Product Details Dynamically
+         const productName = product.fields.name
+         const companyName = product.fields.company;
+         const productPrice = product.fields.price;
+         const productImageUrl = product.fields.image[0].url;
+
+        listItem.innerHTML = `${productName} by ${companyName}: $${productPrice} 
+        <img src="${productImageUrl}" alt="${productName}" style="width: 100px; height: 100px; margin-left: 15px;">`
+
+        productList.appendChild(listItem)
+
+
         })
     })
     //Task 4- Handle Errors Gracefully
@@ -23,13 +36,4 @@ fetch('https://www.course-api.com/javascript-store-products')
         console.error('There was a problem with the fetch operation', error)
     })
 
-    //Task 3- Display Product Details Dynamically
-    const productName = product.fields.name
-    const companyName = product.fields.company;
-    const productPrice = product.fields.price;
-    const productImageUrl = product.fields.image[0].url;
-
-    listItem.innerHTML = `${productName} by ${companyName}: $${productPrice} 
-     <img src="${productImageUrl}" alt="${productName}" style="width: 100px; height: 100px; margin-left: 15px;">`
-
-     productList.appendChild(listItem)
+   
