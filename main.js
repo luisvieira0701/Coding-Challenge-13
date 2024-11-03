@@ -12,6 +12,14 @@ fetch('https://www.course-api.com/javascript-store-products')
     .then((data)=> {
         console.log(data)
     })
+    .then(fields =>{
+        fields.forEach(product =>{
+            const listItem = document.createElement('li');
+            listItem.textContent = `${product.name} - ${product.price}`;
+            productList.appendChild(listItem)
+        })
+    })
     .catch(error =>{
         console.error('There was a problem with the fetch operation', error)
     })
+
