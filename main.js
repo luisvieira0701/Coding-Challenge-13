@@ -9,15 +9,12 @@ fetch('https://www.course-api.com/javascript-store-products')
         console.log(response)
         return response.json()
     })
-    .then((data)=> {
-        console.log(data)
-    })
     .then(products =>{
         console.log(products)
         products.forEach(product =>{
             const productFields = product.fields
             const listItem = document.createElement('li')
-            listItem.textContent = `${productFields.name} - ${productFields.price}`
+            listItem.textContent = `${productFields.name} - $${productFields.price}`
             productList.appendChild(listItem) 
         })
     })
