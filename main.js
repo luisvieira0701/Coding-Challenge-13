@@ -6,14 +6,11 @@ fetch('https://www.course-api.com/javascript-store-products')
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
+        console.log(response)
         return response.json()
     })
-    .then(fields => {
-        fields.forEach(product => {
-            const listItem = document.createElement('li');
-            listItem.textContent = `${product.name} - $${product.price}`
-            productList.appendChild(listItem)
-        })
+    .then((data)=> {
+        console.log(data)
     })
     .catch(error =>{
         console.error('There was a problem with the fetch operation', error)
